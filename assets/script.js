@@ -1,19 +1,75 @@
 // Assignment code here
 
 var lengthPassword = "8-128 characters"
+var characterType = "lowercase, uppercase, numeric, and/or special characters"
+
 var a = 8
 var b = 128
-var characterType = "lowercase, uppercase, numeric, and/or special characters"
 
 var expression1 = (a<=b);
 var expression2 = (a>=b);
+
+var x = 0
+
+var expression1 = (x <= 8);
+var expression2 = (x >= 128);
+
+if (expression1 && expression2) {
+  console.log("Valid Valid");
+} else if (expression1) {
+  console.log("Valid Invalid");
+} else if (expression2) {
+  console.log("Invalid Valid");
+} else {
+  console.log("Invalid Invalid")
+}
 
 console.log(expression1 && expression2)
 console.log(expression1 || expression2)
 console.log(generate a strong password that meets greater security)
 
+if
 
+// program to figure out if we're hungry
 
+// program to generate password
+
+var passwordLength = 8
+var ispassword = true
+var 
+
+if (passwordlength <=8) {
+  console.log("valid");
+}
+if (passwordLength >8) {
+  console.log("invalid")
+}
+
+if (ispassword === true) {
+  console.log("password");
+} else {
+  console.log("No Password")
+}
+
+if (ispassword) {
+  console.log("Password")
+} else {
+  console.log("No Password")
+}
+
+if (!ispassword) {
+  console.log("No Password")
+} else {
+  console.log("Password")
+}
+
+if (passwordLength <=8) {
+  console.log("valid")
+} else if (passwordLength <= 8 && passwordLength >=128) {
+  console.log("valid");
+} else {
+  console.log("invalid")
+}
 
 
 // Get references to the #generate element
