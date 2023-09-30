@@ -1,14 +1,5 @@
 // Assignment code here
 
-var lengthPassword = "8-128 characters"
-var characterType = "lowercase, uppercase, numeric, and/or special characters"
-
-var a = 8
-var b = 128
-
-var expression1 = (a<=b);
-var expression2 = (a>=b);
-
 var x = 0
 
 var expression1 = (x <= 8);
@@ -28,9 +19,14 @@ console.log(expression1 && expression2)
 console.log(expression1 || expression2)
 console.log(generate a strong password that meets greater security)
 
-if
+var characterTypes = ["lowercase", "uppercase", "numeric","special characters"]
 
-// program to figure out if we're hungry
+console.log(characterTypes)
+
+console.log(characterTypes[0])
+console.log(characterTypes[characterTypes.length -1])
+
+
 
 // program to generate password
 
@@ -70,6 +66,13 @@ if (passwordLength <=8) {
 } else {
   console.log("invalid")
 }
+
+
+
+
+
+
+
 
 
 // Get references to the #generate element
