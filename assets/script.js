@@ -1,11 +1,18 @@
 // Assignment code here
 
-var lengthPassword
-var characterType
-var
+var lengthPassword = "8-128 characters"
+var a = 8
+var b = 128
+var characterType = "lowercase, uppercase, numeric, and/or special characters"
 
+var expression1 = (a<=b);
+var expression2 = (a>=b);
 
+console.log(expression1 && expression2)
+console.log(expression1 || expression2)
 console.log(generate a strong password that meets greater security)
+
+
 
 
 
@@ -24,18 +31,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
 /* User Story
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 
-
-
-
 Acceptance Criteria
-
 
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
