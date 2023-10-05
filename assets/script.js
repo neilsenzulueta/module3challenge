@@ -1,115 +1,83 @@
 // Assignment code here
-
-var x = 0
-
-var expression1 = (x <= 8);
-var expression2 = (x >= 128);
-
-if (expression1 && expression2) {
-  console.log("Valid Valid");
-} else if (expression1) {
-  console.log("Valid Invalid");
-} else if (expression2) {
-  console.log("Invalid Valid");
-} else {
-  console.log("Invalid Invalid")
-}
-
-console.log(expression1 && expression2)
-console.log(expression1 || expression2)
-console.log(generate a strong password that meets greater security)
-
-var characterTypes = ["lowercase", "uppercase", "numeric","special characters"]
-
-console.log(characterTypes)
-
-console.log(characterTypes[0])
-console.log(characterTypes[characterTypes.length -1])
-
-
-
-// program to generate password
-
-var passwordLength = 8
-var ispassword = true
-var 
-
-if (passwordlength <=8) {
-  console.log("valid");
-}
-if (passwordLength >8) {
-  console.log("invalid")
-}
-
-if (ispassword === true) {
-  console.log("password");
-} else {
-  console.log("No Password")
-}
-
-if (ispassword) {
-  console.log("Password")
-} else {
-  console.log("No Password")
-}
-
-if (!ispassword) {
-  console.log("No Password")
-} else {
-  console.log("Password")
-}
-
-if (passwordLength <=8) {
-  console.log("valid")
-} else if (passwordLength <= 8 && passwordLength >=128) {
-  console.log("valid");
-} else {
-  console.log("invalid")
-}
-
-
-
-
-
-
-
-
-
-// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+  generateBtn.addEventListener("click", generateAndDisplayPassword);
 
-// Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordLength = parseInt(prompt ("How many characters would you like your password to contain? [8-128]"))
 
-  passwordText.value = password;
+  if 
+  (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128)
+  {
+    alert('you must choose again...')
+    passwordLength = prompt ("Please try again [8-128]");
+    return;
+  }
+
+  alert(" You have chosen " + passwordLength)
+
+  var includeSpecial = confirm("Click ok to confirm including special characters");
+  var includeNumeric = confirm("Click ok to confirm including numeric characters");
+  var includeLowercase = confirm("Click ok to confirm including lowercase characters");
+  var includeUppercase = confirm("Click ok to confirm including uppercase characters");
+
+  if (!includeSpecial && !includeNumeric && !includeLowercase && !includeUppercase) {
+
+  alert ("At least one character type must be selected")
+  }
+
+  var criteria = {
+    passwordLength: passwordLength,
+    includeSpecial: includeSpecial,
+    includeNumeric: includeNumeric,
+    includeLowercase: includeLowercase,
+    includeUppercase: includeUppercase,
+  };
+  return criteria
+}
+function generatePassword(criteria){
+  var specialCharacters = " !'?{}><;:+=_-)(";
+  var numericCharacters = "0123456789";
+  var lowercaseCharacters = "abcdefghijklmnopqrstuvwxyz";
+  var uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  
+  var characterTypes = "";
+
+  if (criteria.includeSpecial) {
+   characterTypes += specialCharacters;
+
+  }
+  if (criteria.includeNumeric) {
+   characterTypes += numericCharacters;
+
+  }
+  if (criteria.includeLowercase) {
+    characterTypes += lowercaseCharacters;
+  }
+
+  if (criteria.includeUppercase) {
+    characterTypes += uppercaseCharacters
+  }
+
+  var password = "" 
+  for (var i = 0; i < criteria.passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * characterTypes.length);
+    password += characterTypes.charAt(randomIndex);
+  }
+
+  return password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function generateAndDisplayPassword() {
+  var criteria = writePassword();
 
-/* User Story
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
+  if (criteria) {
+    var password = generatePassword(criteria);
+    alert("Your New Password is: " + password)
+  }
+  
+}
+  
+  
 
-Acceptance Criteria
-
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page 
-*/
+  
